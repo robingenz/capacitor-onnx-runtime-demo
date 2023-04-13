@@ -26,41 +26,53 @@ import * as ort from 'onnxruntime-web';
         <ion-card-content>
           <form [formGroup]="formGroup">
             <ion-item>
-              <ion-label position="stacked">Sepal length (cm)</ion-label>
               <ion-input
                 type="number"
                 formControlName="sepalLength"
+                [label]="'Sepal length (cm)'"
+                [labelPlacement]="'stacked'"
               ></ion-input>
             </ion-item>
             <ion-item>
-              <ion-label position="stacked">Sepal width (cm)</ion-label>
-              <ion-input type="number" formControlName="sepalWidth"></ion-input>
+              <ion-input
+                type="number"
+                formControlName="sepalWidth"
+                [label]="'Sepal width (cm)'"
+                [labelPlacement]="'stacked'"
+              ></ion-input>
             </ion-item>
             <ion-item>
-              <ion-label position="stacked">Petal length (cm)</ion-label>
               <ion-input
                 type="number"
                 formControlName="petalLength"
+                [label]="'Petal length (cm)'"
+                [labelPlacement]="'stacked'"
               ></ion-input>
             </ion-item>
             <ion-item>
-              <ion-label position="stacked">Petal width (cm)</ion-label>
-              <ion-input type="number" formControlName="petalWidth"></ion-input>
+              <ion-input
+                type="number"
+                formControlName="petalWidth"
+                [label]="'Petal width (cm)'"
+                [labelPlacement]="'stacked'"
+              ></ion-input>
             </ion-item>
             <ion-item>
-              <ion-label position="stacked">Class</ion-label>
               <ion-input
                 type="number"
                 formControlName="class"
                 [readonly]="true"
+                [label]="'Class'"
+                [labelPlacement]="'stacked'"
               ></ion-input>
             </ion-item>
             <ion-item>
-              <ion-label position="stacked">Time (ms)</ion-label>
               <ion-input
                 type="number"
                 formControlName="time"
-                readonly="true"
+                [readonly]="true"
+                [label]="'Time (ms)'"
+                [labelPlacement]="'stacked'"
               ></ion-input>
             </ion-item>
           </form>
