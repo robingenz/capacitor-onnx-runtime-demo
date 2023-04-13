@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
-import { IonicModule } from '@ionic/angular';
+import { IonicModule, ModalController } from '@ionic/angular';
+import { IrisDatasetModalComponent } from './iris-dataset-modal.component';
 
 @Component({
   selector: 'app-home',
@@ -9,5 +10,14 @@ import { IonicModule } from '@ionic/angular';
   imports: [IonicModule],
 })
 export class HomePage {
-  constructor() {}
+  constructor(private modalCtrl: ModalController) {}
+
+  public async openIrisDatasetModal(): Promise<void> {
+    const element = await this.modalCtrl.create({
+      component: IrisDatasetModalComponent,
+      showBackdrop: false,
+      cssClass: 'fullscreen-modal',
+    });
+    await element.present();
+  }
 }

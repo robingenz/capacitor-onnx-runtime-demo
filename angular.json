@@ -34,6 +34,11 @@
                 "glob": "**/*.svg",
                 "input": "node_modules/ionicons/dist/ionicons/svg",
                 "output": "./svg"
+              },
+              {
+                "glob": "**/*.wasm",
+                "input": "node_modules/onnxruntime-web/dist",
+                "output": "/"
               }
             ],
             "styles": ["src/theme/variables.scss", "src/global.scss"],
@@ -136,7 +141,10 @@
     }
   },
   "cli": {
-    "schematicCollections": ["@ionic/angular-toolkit"]
+    "schematicCollections": [
+      "@ionic/angular-toolkit"
+    ],
+    "analytics": false
   },
   "schematics": {
     "@ionic/angular-toolkit:component": {
