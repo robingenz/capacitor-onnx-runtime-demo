@@ -25,20 +25,10 @@ export class SpamClassificationPage {
     await this.dialogService.dismissModal();
   }
 
-  public async downloadModel(): Promise<void> {
-    const element = await this.dialogService.showLoading();
-    try {
-      const response = await fetch('/assets/models/spam.onnx');
-      this.blob = await response.blob();
-    } finally {
-      await element.dismiss();
-    }
-  }
-
   public async runInference(): Promise<void> {
-    const blob = this.blob;
+    let blob = this.blob;
     if (!blob) {
-      return;
+      blob = await this.downloadModel();
     }
     const text = this.formGroup.get('text')?.value;
     if (!text) {
@@ -58,5 +48,18 @@ export class SpamClassificationPage {
       spam: Number(results['output_label'].data),
       time: endTime - startTime,
     });
+  }
+
+  private async downloadModel(): Promise<Blob> {
+    const element = await this.dialogService.showLoading({
+      message: 'Downloading model...',
+    });
+    try {
+      const response = await fetch('/assets/models/spam.onnx');
+      this.blob = await response.blob();
+      return this.blob;
+    } finally {
+      await element.dismiss();
+    }
   }
 }

@@ -54,9 +54,18 @@
         <ion-item>
           <ion-input
             type="number"
-            formControlName="class"
+            formControlName="label"
             [readonly]="true"
-            [label]="'Class'"
+            [label]="'Label'"
+            [labelPlacement]="'stacked'"
+          ></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-input
+            type="number"
+            formControlName="probability"
+            [readonly]="true"
+            [label]="'Probability'"
             [labelPlacement]="'stacked'"
           ></ion-input>
         </ion-item>
@@ -70,10 +79,7 @@
           ></ion-input>
         </ion-item>
       </form>
-      <ion-button (click)="downloadModel()">Download Model</ion-button>
-      <ion-button (click)="runInference()" [disabled]="!this.blob"
-        >Run Inference</ion-button
-      >
+      <ion-button (click)="runInference()">Run Inference</ion-button>
     </ion-card-content>
   </ion-card>
 </ion-content>
