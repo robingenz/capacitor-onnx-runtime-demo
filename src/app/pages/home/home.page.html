@@ -9,8 +9,12 @@
     <ion-list-header>
       <ion-label>Datasets</ion-label>
     </ion-list-header>
-    <ion-item button (click)="openIrisDatasetModal()">
-      <ion-label>Iris Species</ion-label>
+    <ion-item
+      *ngFor="let dataset of datasets"
+      button
+      [routerLink]="[dataset.url]"
+    >
+      <ion-label>{{ dataset.name }}</ion-label>
     </ion-item>
   </ion-list>
 </ion-content>
