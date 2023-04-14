@@ -7,10 +7,10 @@ export const routes: Routes = [
       import('./pages/home/home.page').then((m) => m.HomePage),
   },
   {
-    path: 'iris-database',
+    path: 'iris-dataset',
     loadComponent: () =>
-      import('./pages/iris-database/iris-database.page').then(
-        (m) => m.IrisDatabasePage
+      import('./pages/iris-dataset/iris-dataset.page').then(
+        (m) => m.IrisDatasetPage
       ),
   },
   {

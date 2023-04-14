@@ -5,13 +5,13 @@ import { IonicModule } from '@ionic/angular';
 import * as ort from 'onnxruntime-web';
 
 @Component({
-  selector: 'app-iris-database',
-  templateUrl: './iris-database.page.html',
-  styleUrls: ['./iris-database.page.scss'],
+  selector: 'app-iris-dataset',
+  templateUrl: './iris-dataset.page.html',
+  styleUrls: ['./iris-dataset.page.scss'],
   standalone: true,
   imports: [IonicModule, ReactiveFormsModule],
 })
-export class IrisDatabasePage {
+export class IrisDatasetPage {
   public formGroup = new FormGroup({
     sepalLength: new FormControl(5.2),
     sepalWidth: new FormControl(3.4),

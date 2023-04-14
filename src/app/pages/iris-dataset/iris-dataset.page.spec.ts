@@ -1,12 +1,12 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-import { IrisDatabasePage } from './iris-database.page';
+import { IrisDatasetPage } from './iris-dataset.page';
 
-describe('IrisDatabasePage', () => {
-  let component: IrisDatabasePage;
-  let fixture: ComponentFixture<IrisDatabasePage>;
+describe('IrisDatasetPage', () => {
+  let component: IrisDatasetPage;
+  let fixture: ComponentFixture<IrisDatasetPage>;
 
   beforeEach(async(() => {
-    fixture = TestBed.createComponent(IrisDatabasePage);
+    fixture = TestBed.createComponent(IrisDatasetPage);
     component = fixture.componentInstance;
     fixture.detectChanges();
   }));
