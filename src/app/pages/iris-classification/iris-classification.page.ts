@@ -56,13 +56,13 @@ export class IrisClassificationPage {
     };
     const results = await session.run(input, [
       'output_label',
-      // 'output_probability',
+      'output_probability',
     ]);
     console.log(results);
     const endTime = performance.now();
     this.formGroup.patchValue({
       label: Number(results['output_label'].data),
-      // probability: Number(results['output_probability'].data),
+      probability: Number(results['output_probability'].data),
       time: endTime - startTime,
     });
   }
