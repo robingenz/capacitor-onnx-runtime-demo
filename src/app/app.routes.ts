@@ -18,4 +18,8 @@ export const routes: Routes = [
     redirectTo: 'home',
     pathMatch: 'full',
   },
+  {
+    path: 'spam-dataset',
+    loadComponent: () => import('./pages/spam-dataset/spam-dataset.page').then( m => m.SpamDatasetPage)
+  },
 ];

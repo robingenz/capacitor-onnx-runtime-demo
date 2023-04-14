@@ -16,7 +16,9 @@ export class HomePage {
       name: 'Iris Species',
       url: '/iris-dataset',
     },
+    {
+      name: 'Spam',
+      url: '/spam-dataset',
+    },
   ];
-
-  constructor() {}
 }

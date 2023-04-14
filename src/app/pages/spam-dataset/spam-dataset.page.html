@@ -3,7 +3,7 @@
     <ion-buttons slot="start">
       <ion-back-button [defaultHref]="'/home'"></ion-back-button>
     </ion-buttons>
-    <ion-title>Iris Species Classification</ion-title>
+    <ion-title>Spam Detection</ion-title>
     <ion-buttons slot="end">
       <ion-button (click)="closeModal()">
         <ion-icon name="close"></ion-icon>
@@ -21,43 +21,20 @@
       <form [formGroup]="formGroup">
         <ion-item>
           <ion-input
-            type="number"
-            formControlName="sepalLength"
-            [label]="'Sepal length (cm)'"
+            type="text"
+            formControlName="text"
+            [label]="'Text'"
             [labelPlacement]="'stacked'"
+            [clearInput]="true"
           ></ion-input>
         </ion-item>
         <ion-item>
           <ion-input
             type="number"
-            formControlName="sepalWidth"
-            [label]="'Sepal width (cm)'"
+            formControlName="spam"
+            [label]="'Text'"
             [labelPlacement]="'stacked'"
-          ></ion-input>
-        </ion-item>
-        <ion-item>
-          <ion-input
-            type="number"
-            formControlName="petalLength"
-            [label]="'Petal length (cm)'"
-            [labelPlacement]="'stacked'"
-          ></ion-input>
-        </ion-item>
-        <ion-item>
-          <ion-input
-            type="number"
-            formControlName="petalWidth"
-            [label]="'Petal width (cm)'"
-            [labelPlacement]="'stacked'"
-          ></ion-input>
-        </ion-item>
-        <ion-item>
-          <ion-input
-            type="number"
-            formControlName="class"
             [readonly]="true"
-            [label]="'Class'"
-            [labelPlacement]="'stacked'"
           ></ion-input>
         </ion-item>
         <ion-item>
