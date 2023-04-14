@@ -31,8 +31,17 @@
         <ion-item>
           <ion-input
             type="number"
-            formControlName="spam"
+            formControlName="label"
             [label]="'Text'"
+            [labelPlacement]="'stacked'"
+            [readonly]="true"
+          ></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-input
+            type="number"
+            formControlName="probability"
+            [label]="'Probability'"
             [labelPlacement]="'stacked'"
             [readonly]="true"
           ></ion-input>

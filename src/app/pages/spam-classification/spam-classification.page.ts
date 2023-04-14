@@ -14,7 +14,8 @@ import * as ort from 'onnxruntime-web';
 export class SpamClassificationPage {
   public formGroup = new FormGroup({
     text: new FormControl('URGENT, you have won, please click this link'),
-    spam: new FormControl<number | undefined>(undefined),
+    label: new FormControl<number | undefined>(undefined),
+    probability: new FormControl<number | undefined>(undefined),
     time: new FormControl<number | undefined>(undefined),
   });
   public blob: Blob | undefined;
@@ -42,10 +43,14 @@ export class SpamClassificationPage {
     const input = {
       string_input: tensor,
     };
-    const results = await session.run(input, ['output_label']);
+    const results = await session.run(input, [
+      'output_label',
+      'output_probability',
+    ]);
     const endTime = performance.now();
     this.formGroup.patchValue({
-      spam: Number(results['output_label'].data),
+      label: Number(results['output_label'].data),
+      probability: Number(results['output_probability'].data),
       time: endTime - startTime,
     });
   }
