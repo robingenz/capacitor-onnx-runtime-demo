@@ -5,16 +5,16 @@
 </ion-header>
 
 <ion-content>
-  <ion-list>
-    <ion-list-header>
-      <ion-label>Datasets</ion-label>
-    </ion-list-header>
+  <ion-item-group>
+    <ion-item-divider>
+      <ion-label>Classification</ion-label>
+    </ion-item-divider>
     <ion-item
-      *ngFor="let dataset of datasets"
+      *ngFor="let dataset of datasets.classification"
       button
       [routerLink]="[dataset.url]"
     >
       <ion-label>{{ dataset.name }}</ion-label>
     </ion-item>
-  </ion-list>
+  </ion-item-group>
 </ion-content>

@@ -5,19 +5,16 @@ import { IonicModule } from '@ionic/angular';
 import * as ort from 'onnxruntime-web';
 
 @Component({
-  selector: 'app-iris-dataset',
-  templateUrl: './iris-dataset.page.html',
-  styleUrls: ['./iris-dataset.page.scss'],
+  selector: 'app-spam-classification',
+  templateUrl: './spam-classification.page.html',
+  styleUrls: ['./spam-classification.page.scss'],
   standalone: true,
   imports: [IonicModule, ReactiveFormsModule],
 })
-export class IrisDatasetPage {
+export class SpamClassificationPage {
   public formGroup = new FormGroup({
-    sepalLength: new FormControl(5.2),
-    sepalWidth: new FormControl(3.4),
-    petalLength: new FormControl(1.4),
-    petalWidth: new FormControl(0.2),
-    class: new FormControl<number | undefined>(undefined),
+    text: new FormControl('URGENT, you have won, please click this link'),
+    spam: new FormControl<number | undefined>(undefined),
     time: new FormControl<number | undefined>(undefined),
   });
   public blob: Blob | undefined;
@@ -31,7 +28,7 @@ export class IrisDatasetPage {
   public async downloadModel(): Promise<void> {
     const element = await this.dialogService.showLoading();
     try {
-      const response = await fetch('/assets/models/iris.onnx');
+      const response = await fetch('/assets/models/spam.onnx');
       this.blob = await response.blob();
     } finally {
       await element.dismiss();
@@ -43,36 +40,23 @@ export class IrisDatasetPage {
     if (!blob) {
       return;
     }
-    const sepalLength = this.formGroup.get('sepalLength')?.value;
-    const sepalWidth = this.formGroup.get('sepalWidth')?.value;
-    const petalLength = this.formGroup.get('petalLength')?.value;
-    const petalWidth = this.formGroup.get('petalWidth')?.value;
-    if (!sepalLength || !sepalWidth || !petalLength || !petalWidth) {
+    const text = this.formGroup.get('text')?.value;
+    if (!text) {
       return;
     }
     const startTime = performance.now();
     const arrayBuffer = await blob.arrayBuffer();
     const session = await ort.InferenceSession.create(arrayBuffer);
-    const data = Float32Array.from([
-      sepalLength,
-      sepalWidth,
-      petalLength,
-      petalWidth,
-    ]);
-    const tensor = new ort.Tensor('float32', data, [1, 4]);
+    const data = [text];
+    const tensor = new ort.Tensor('string', data, [1, 1]);
     const input = {
-      float_input: tensor,
+      string_input: tensor,
     };
     const results = await session.run(input, ['output_label']);
     const endTime = performance.now();
     this.formGroup.patchValue({
-      class: Number(results['output_label'].data),
+      spam: Number(results['output_label'].data),
       time: endTime - startTime,
     });
-    // const result = results['output_label'].data as BigInt64Array;
-    // console.log(results['output_label'].data);
-    // var enc = new TextDecoder('utf-8');
-    // console.log(enc.decode(result.buffer));
-    // console.log(Number(result[0]));
   }
 }

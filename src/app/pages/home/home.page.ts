@@ -11,14 +11,16 @@ import { IonicModule } from '@ionic/angular';
   imports: [IonicModule, CommonModule, RouterModule],
 })
 export class HomePage {
-  public datasets = [
-    {
-      name: 'Iris Species',
-      url: '/iris-dataset',
-    },
-    {
-      name: 'Spam',
-      url: '/spam-dataset',
-    },
-  ];
+  public datasets = {
+    classification: [
+      {
+        name: 'Iris Species',
+        url: '/iris-classification',
+      },
+      {
+        name: 'Spam',
+        url: '/spam-classification',
+      },
+    ],
+  };
 }

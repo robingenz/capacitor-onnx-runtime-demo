@@ -2,24 +2,22 @@ import { Routes } from '@angular/router';
 
 export const routes: Routes = [
   {
-    path: 'home',
+    path: 'iris-classification',
     loadComponent: () =>
-      import('./pages/home/home.page').then((m) => m.HomePage),
+      import('./pages/iris-classification/iris-classification.page').then(
+        (m) => m.IrisClassificationPage
+      ),
   },
   {
-    path: 'iris-dataset',
+    path: 'spam-classification',
     loadComponent: () =>
-      import('./pages/iris-dataset/iris-dataset.page').then(
-        (m) => m.IrisDatasetPage
+      import('./pages/spam-classification/spam-classification.page').then(
+        (m) => m.SpamClassificationPage
       ),
   },
   {
     path: '',
     redirectTo: 'home',
     pathMatch: 'full',
-  },
-  {
-    path: 'spam-dataset',
-    loadComponent: () => import('./pages/spam-dataset/spam-dataset.page').then( m => m.SpamDatasetPage)
   },
 ];
