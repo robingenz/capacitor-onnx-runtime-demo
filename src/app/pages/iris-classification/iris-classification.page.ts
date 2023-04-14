@@ -65,11 +65,6 @@ export class IrisClassificationPage {
       // probability: Number(results['output_probability'].data),
       time: endTime - startTime,
     });
-    // const result = results['output_label'].data as BigInt64Array;
-    // console.log(results['output_label'].data);
-    // var enc = new TextDecoder('utf-8');
-    // console.log(enc.decode(result.buffer));
-    // console.log(Number(result[0]));
   }
 
   private async downloadModel(): Promise<Blob> {
