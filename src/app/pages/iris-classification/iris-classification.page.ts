@@ -18,7 +18,6 @@ export class IrisClassificationPage {
     petalLength: new FormControl(1.4),
     petalWidth: new FormControl(0.2),
     label: new FormControl<number | undefined>(undefined),
-    probability: new FormControl<number | undefined>(undefined),
     time: new FormControl<number | undefined>(undefined),
   });
   public blob: Blob | undefined;
@@ -54,15 +53,11 @@ export class IrisClassificationPage {
     const input = {
       float_input: tensor,
     };
-    const results = await session.run(input, [
-      'output_label',
-      'output_probability',
-    ]);
+    const results = await session.run(input, ['output_label']);
     console.log(results);
     const endTime = performance.now();
     this.formGroup.patchValue({
       label: Number(results['output_label'].data),
-      probability: Number(results['output_probability'].data),
       time: endTime - startTime,
     });
   }
