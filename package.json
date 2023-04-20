@@ -26,6 +26,7 @@
     "@capacitor/ios": "^4.7.3",
     "@capacitor/keyboard": "4.1.1",
     "@capacitor/status-bar": "4.1.1",
+    "@capawesome/capacitor-file-picker": "^0.6.3",
     "@ionic/angular": "^7.0.0",
     "ionicons": "^7.0.0",
     "onnxruntime-web": "^1.14.0",

@@ -24,10 +24,6 @@ export class IrisClassificationPage {
 
   constructor(private readonly dialogService: DialogService) {}
 
-  public async closeModal(): Promise<void> {
-    await this.dialogService.dismissModal();
-  }
-
   public async runInference(): Promise<void> {
     let blob = this.blob;
     if (!blob) {

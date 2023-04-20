@@ -3,7 +3,7 @@
     <ion-buttons slot="start">
       <ion-back-button [defaultHref]="'/home'"></ion-back-button>
     </ion-buttons>
-    <ion-title>Spam</ion-title>
+    <ion-title>Iris Species</ion-title>
   </ion-toolbar>
 </ion-header>
 
@@ -15,21 +15,18 @@
     <ion-card-content>
       <form [formGroup]="formGroup">
         <ion-item>
-          <ion-input
-            type="text"
-            formControlName="text"
-            [label]="'Text'"
-            [labelPlacement]="'stacked'"
-            [clearInput]="true"
-          ></ion-input>
+          <ion-label position="fixed">Photo</ion-label>
+          <ion-img
+            [src]="formGroup.get('imgAsBase64')?.value || undefined"
+          ></ion-img>
         </ion-item>
         <ion-item>
           <ion-input
             type="number"
             formControlName="label"
+            [readonly]="true"
             [label]="'Label'"
             [labelPlacement]="'stacked'"
-            [readonly]="true"
           ></ion-input>
         </ion-item>
         <ion-item>
@@ -42,7 +39,12 @@
           ></ion-input>
         </ion-item>
       </form>
-      <ion-button (click)="runInference()">Run Inference</ion-button>
+      <ion-button (click)="pickImage()">Pick Image</ion-button>
+      <ion-button
+        (click)="runInference()"
+        [disabled]="!formGroup.get('imgAsBase64')?.value"
+        >Run Inference</ion-button
+      >
     </ion-card-content>
   </ion-card>
 </ion-content>

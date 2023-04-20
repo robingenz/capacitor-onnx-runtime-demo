@@ -18,6 +18,10 @@ export class HomePage {
         url: '/iris-classification',
       },
       {
+        name: 'MNIST',
+        url: '/mnist-classification',
+      },
+      {
         name: 'Spam',
         url: '/spam-classification',
       },

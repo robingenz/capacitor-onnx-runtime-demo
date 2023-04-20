@@ -21,6 +21,13 @@ export const routes: Routes = [
       ),
   },
   {
+    path: 'mnist-classification',
+    loadComponent: () =>
+      import('./pages/mnist-classification/mnist-classification.page').then(
+        (m) => m.MnistClassificationPage
+      ),
+  },
+  {
     path: '',
     redirectTo: 'home',
     pathMatch: 'full',
