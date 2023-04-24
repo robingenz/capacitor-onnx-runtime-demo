@@ -12,18 +12,24 @@ import { IonicModule } from '@ionic/angular';
 })
 export class HomePage {
   public datasets = {
-    classification: [
+    Tabular: [
+      {
+        name: 'Auto MPG',
+        url: '/auto-mpg-regression',
+      },
       {
         name: 'Iris Species',
         url: '/iris-classification',
       },
       {
-        name: 'MNIST',
-        url: '/mnist-classification',
-      },
-      {
         name: 'Spam',
         url: '/spam-classification',
+      },
+    ],
+    'Computer Vision': [
+      {
+        name: 'MNIST Image',
+        url: '/mnist-classification',
       },
     ],
   };

@@ -32,4 +32,8 @@ export const routes: Routes = [
     redirectTo: 'home',
     pathMatch: 'full',
   },
+  {
+    path: 'auto-mpg-regression',
+    loadComponent: () => import('./pages/auto-mpg-regression/auto-mpg-regression.page').then( m => m.AutoMpgRegressionPage)
+  },
 ];

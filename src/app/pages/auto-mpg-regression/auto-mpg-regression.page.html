@@ -1,0 +1,99 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button [defaultHref]="'/home'"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Auto MPG</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title>Inference</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <form [formGroup]="formGroup">
+        <ion-item>
+          <ion-input
+            type="number"
+            formControlName="cylinders"
+            [label]="'Cylinders'"
+            [labelPlacement]="'stacked'"
+          ></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-input
+            type="number"
+            formControlName="displacement"
+            [label]="'Displacement'"
+            [labelPlacement]="'stacked'"
+          ></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-input
+            type="number"
+            formControlName="horsepower"
+            [label]="'Horsepower'"
+            [labelPlacement]="'stacked'"
+          ></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-input
+            type="number"
+            formControlName="weight"
+            [label]="'Weight'"
+            [labelPlacement]="'stacked'"
+          ></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-input
+            type="number"
+            formControlName="acceleration"
+            [label]="'Acceleration'"
+            [labelPlacement]="'stacked'"
+          ></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-input
+            type="number"
+            formControlName="modelYear"
+            [label]="'Model Year'"
+            [labelPlacement]="'stacked'"
+          ></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-select
+            type="number"
+            formControlName="origin"
+            [label]="'Origin'"
+            [labelPlacement]="'stacked'"
+          >
+            <ion-select-option [value]="0">Europe</ion-select-option>
+            <ion-select-option [value]="1">Japan</ion-select-option>
+            <ion-select-option [value]="2">USA</ion-select-option>
+          </ion-select>
+        </ion-item>
+        <ion-item>
+          <ion-input
+            type="number"
+            formControlName="label"
+            [readonly]="true"
+            [label]="'Label'"
+            [labelPlacement]="'stacked'"
+          ></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-input
+            type="number"
+            formControlName="time"
+            [readonly]="true"
+            [label]="'Time (ms)'"
+            [labelPlacement]="'stacked'"
+          ></ion-input>
+        </ion-item>
+      </form>
+      <ion-button (click)="runInference()">Run Inference</ion-button>
+    </ion-card-content>
+  </ion-card>
+</ion-content>

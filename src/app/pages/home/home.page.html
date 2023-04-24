@@ -5,12 +5,12 @@
 </ion-header>
 
 <ion-content>
-  <ion-item-group>
+  <ion-item-group *ngFor="let group of datasets | keyvalue">
     <ion-item-divider>
-      <ion-label>Classification</ion-label>
+      <ion-label>{{group.key}}</ion-label>
     </ion-item-divider>
     <ion-item
-      *ngFor="let dataset of datasets.classification"
+      *ngFor="let dataset of group.value"
       button
       [routerLink]="[dataset.url]"
     >
